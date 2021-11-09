@@ -28,6 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
+import { RegisterSuccessComponent } from './register/register-success.component';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { AboutComponent } from './about/about.component';
     AppComponent,
     LogInComponent,
     RegisterComponent,
-    RegisterComponent,
+    RegisterSuccessComponent,
     LogInComponent,
     DashboardComponent,
     HomeComponent,

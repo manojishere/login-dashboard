@@ -4,24 +4,24 @@
         <mat-card-title>Register</mat-card-title>
       </mat-card-header>
   
-      <form class="example-form">
+      <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username">
+            <input matInput placeholder="User Name" formControlName="userName">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email">
+            <input matInput placeholder="Email" formControlName="email">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password">
+            <input matInput placeholder="Password" formControlName="password">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
             <mat-label>Choose a role...</mat-label>
-            <mat-select>
+            <mat-select formControlName="userRole">
               <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
               </mat-option>
             </mat-select>

@@ -16,13 +16,13 @@ export class AppComponent {
   }
 
   get isLoggedIn():boolean{
-    console.log('AppComponent : isLoggedIn() : ' + this.authService.isLoggedIn);
+    //console.log('AppComponent : isLoggedIn() : ' + this.authService.isLoggedIn);
     return this.authService.isLoggedIn;
   }
 
   logout():void{
     this.authService.logout();
-    console.log('AppComponent : logout()');
+    //console.log('AppComponent : logout()');
     this.router.navigateByUrl('/login');
   }
 }

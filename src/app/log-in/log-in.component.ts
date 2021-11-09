@@ -31,9 +31,9 @@ export class LogInComponent implements OnInit {
     this.loginInvalid = false;
     const userName = this.form.get('userName')?.value;
     const password = this.form.get('password')?.value;
-    console.log(this.form.value);
-    console.log('userName : ' + userName);
-    console.log('password : ' + password);
+    //console.log(this.form.value);
+    //console.log('userName : ' + userName);
+    //console.log('password : ' + password);
 /*
     if(this.form.invalid){
       return;
@@ -41,12 +41,12 @@ export class LogInComponent implements OnInit {
     */
 
     this.authService.login( userName, password )
-    console.log('LoginComponent : onSubmit isLoggedIn : ' + this.authService.isLoggedIn);
+    //console.log('LoginComponent : onSubmit isLoggedIn : ' + this.authService.isLoggedIn);
     if( this.authService.isLoggedIn){
-      console.log("LoginComponent : onSubmit login success");
+      //console.log("LoginComponent : onSubmit login success");
       this.router.navigateByUrl('dashboard');
     }else{
-      console.log("LoginComponent : onSubmit login failed");
+      //console.log("LoginComponent : onSubmit login failed");
     }
 
 

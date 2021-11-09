@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RegisterSuccessComponent } from './register/register-success.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -16,11 +17,14 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'register', component: RegisterComponent },
+  { path: 'registersuccess', component: RegisterSuccessComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  
+  imports: [
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 
