@@ -1,0 +1,42 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col md 6 offset md 3">
+        <div class="container text-center">
+
+          <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+            <mat-card class="box">
+              <mat-card-header>
+                <mat-card-title>Log in</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                  <form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()"> 
+                      <mat-error *ngIf="loginInvalid">
+                        The user name and password is not recognized.
+                      </mat-error>           
+                  
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="User Name" formControlName="userName" #userNameInput/>
+                          <mat-hint>Mini character 8: {{ userNameInput.value.length }}/8</mat-hint>
+                          <mat-error *ngIf="form?.get('userName')?.hasError('required')">User Name is required</mat-error>
+                          <mat-error *ngIf="form?.get('userName')?.hasError('maxlength')">You have more than 10 characters.</mat-error>
+                      </mat-form-field>
+          
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Password" formControlName="password" required>
+                      </mat-form-field>
+                  
+                      <button mat-raised-button color="primary" [disabled]="!form.valid">Log in</button>
+                  </form>
+              </mat-card-content>
+            </mat-card>
+          
+          </div>          
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
