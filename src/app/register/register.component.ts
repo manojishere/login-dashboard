@@ -34,14 +34,6 @@ export class RegisterComponent implements OnInit {
     this.userCreated.password = this.form.get('password')?.value;
     this.userCreated.email = this.form.get('email')?.value;
     this.userCreated.role = this.form.get('userRole')?.value;
-
-    console.log('RegisterComponent : onSubmit : ' + this.userCreated.userName);
-    console.log('RegisterComponent : onSubmit : ' + this.userCreated.password);
-    console.log('RegisterComponent : onSubmit : ' + this.userCreated.email);
-    console.log('RegisterComponent : onSubmit : ' + this.userCreated.role);
-
-    this.authService.resgisterUser( this.userCreated );
-
     this.router.navigateByUrl('/registersuccess');
 
   }
