@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/user';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -10,11 +11,13 @@ import { AuthService } from '../services/auth.service';
 export class RegisterSuccessComponent implements OnInit {
 
   Roles: any = ['Admin', 'Author', 'Reader'];
-  user: any;
+  user!: User;
 
   constructor( private authService: AuthService ) { }
 
   ngOnInit() {
       console.log('inside RegisterSuccessComponent ngOnInit')
+      this.user = this.authService.getRegisteredUser();
+      console.log( ' RegisterSuccessComponent ngOnInit : ' + this.user.role);
   }
 }

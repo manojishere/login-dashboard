@@ -12,9 +12,12 @@
       <span class="example-spacer"></span>
       <span class="nav-tool-items">
         <a mat-button routerLink="login" routerLinkActive="active" *ngIf="!isLoggedIn">Log in</a>
+        <span *ngIf="isLoggedIn">Welcome {{loggedInUserName}}</span>
         <a mat-button routerLink="logout" routerLinkActive="active" *ngIf="isLoggedIn"
           (click)="logout()">Log Out</a>
         <a mat-button mat-raised-button routerLink="register" routerLinkActive="active" *ngIf="!isLoggedIn">Register</a>
+        
+
       </span>
     </mat-toolbar>
           

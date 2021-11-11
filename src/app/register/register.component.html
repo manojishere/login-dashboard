@@ -10,6 +10,14 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="User Name" formControlName="userName">
           </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="First Name" formControlName="firstName">
+          </mat-form-field>   
+          
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Last Name" formControlName="lastName">
+          </mat-form-field>          
   
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Email" formControlName="email">
@@ -21,7 +29,7 @@
   
           <mat-form-field class="example-full-width">
             <mat-label>Choose a role...</mat-label>
-            <mat-select formControlName="userRole">
+            <mat-select formControlName="role">
               <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
               </mat-option>
             </mat-select>

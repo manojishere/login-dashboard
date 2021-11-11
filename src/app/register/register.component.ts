@@ -23,19 +23,43 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       userName : [''],
+      firstName : [''],
+      lastName : [''],
       password : [''],
       email : [''],
-      userRole : ['']
+      role : ['']
     })
   }
 
   onSubmit(){
+    /*
     this.userCreated.userName = this.form.get('userName')?.value;
     this.userCreated.password = this.form.get('password')?.value;
     this.userCreated.email = this.form.get('email')?.value;
     this.userCreated.role = this.form.get('userRole')?.value;
+    */
+
+    
+    console.log('RegisterComponent onSubmit :' + this.form.value)
+    this.userCreated = Object.assign( this.userCreated, this.form.value);
+    console.log('userCreated : ' + this.userCreated.email);
+    localStorage.setItem('user', JSON.stringify( this.userCreated ) );
     this.router.navigateByUrl('/registersuccess');
 
   }
+
+  /*
+  addUsers( user: User){
+    let users = [];
+    if( localStorage.getItem('listOfUsers')){
+      users = JSON.parse( localStorage.getItem ( "listOfUsers'") || '[]');
+      users = [user, ...users];
+    }else{
+      users = [user];
+    }
+    localStorage.setItem('listOfUsers', JSON.stringify( users ));
+  }
+  */
+  
 
 }

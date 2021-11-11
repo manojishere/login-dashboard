@@ -16,10 +16,46 @@ export class AuthService {
     token:''
   }
   */
-  currentUser: any;
+ loggedUser: User = new User();
 
   constructor() { }
 
+  createUser( user: User){
+    //console.log('AuthService createUser : ' + user.email);
+    localStorage.setItem('user', JSON.stringify( user ) );
+  }
+
+  getRegisteredUser() : User{
+    //console.log('AuthService getRegisteredUser');
+    /*
+    const userJson = localStorage.getItem('currentUser');
+    this.currentUser = userJson !== null ? JSON.parse(userJson) : new User();
+    */
+    return JSON.parse(localStorage.getItem('user') || '{}');
+
+  }
+
+  get loggedInUser() : User{
+    //console.log('AuthService get loggedInUser');
+    return this.loggedUser;
+
+  } 
+
+  login(userName:string, password:string) : void{
+   // console.log('AuthService.login : ' + userName + ' : ' +password)
+    let registeredUser:User
+    registeredUser = JSON.parse(localStorage.getItem('user') || '{}');
+    //console.log('inside login registered user  : ' + registeredUser?.userName + ' : ' + registeredUser?.password);
+    if(userName == registeredUser?.userName  && password == registeredUser?.password){
+      this.loggedUser = registeredUser;
+     // console.log('AuthService.login matched');
+    }else{
+      //console.log('AuthService.login does not match')
+    }
+   
+  }
+
+  /*
   login(userName:string, password:string) : void{
     console.log('inside login service')
     if(userName =='manojishere' && password == 'admin'){
@@ -33,13 +69,16 @@ export class AuthService {
     }
     console.log('finished')
   }
+  */
 
   get isLoggedIn():boolean {
-    console.log('isLoggedIn + ' + !!this.currentUser)
-    return !!this.currentUser;
+    
+    //console.log('isLoggedIn + ' + !!this.loggedUser?.userName)
+    return !!this.loggedUser.userName;
   }
 
   logout():void{
-    this.currentUser = null;
+    localStorage.removeItem( 'user' );
+    this.loggedUser = new User();
   }
 }
