@@ -12,7 +12,16 @@
       <span class="example-spacer"></span>
       <span class="nav-tool-items">
         <a mat-button routerLink="login" routerLinkActive="active" *ngIf="!isLoggedIn">Log in</a>
-        <span *ngIf="isLoggedIn">Welcome {{loggedInUserName}}</span>
+        <span *ngIf="isLoggedIn"><mat-icon>verified_user</mat-icon> {{loggedInUserName}}</span>
+        <span *ngIf="isLoggedIn">
+          <span *ngIf="isLoggedIn" [ngSwitch] = "loggedInUserRole">
+            <mat-label style="font-size: 16px;" *ngSwitchCase="'Admin'">Admins<mat-icon>supervisor_account</mat-icon></mat-label>
+            <mat-label style="font-size: 16px;" *ngSwitchCase="'Author'">Authors<mat-icon><mat-icon>account_circle</mat-icon></mat-icon></mat-label>
+            <mat-label style="font-size: 16px;" *ngSwitchCase="'Reader'">Readers<mat-icon>verified_user</mat-icon></mat-label>
+            <mat-label style="font-size: 16px;" *ngSwitchDefault>Normal</mat-label>
+          </span>
+        </span>
+
         <a mat-button routerLink="logout" routerLinkActive="active" *ngIf="isLoggedIn"
           (click)="logout()">Log Out</a>
         <a mat-button mat-raised-button routerLink="register" routerLinkActive="active" *ngIf="!isLoggedIn">Register</a>

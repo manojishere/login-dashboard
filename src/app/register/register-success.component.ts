@@ -18,6 +18,7 @@ export class RegisterSuccessComponent implements OnInit {
   ngOnInit() {
       console.log('inside RegisterSuccessComponent ngOnInit')
       this.user = this.authService.getRegisteredUser();
-      console.log( ' RegisterSuccessComponent ngOnInit : ' + this.user.role);
+      console.log( ' RegisterSuccessComponent ngOnInit role : ' + this.user.role);
+      console.log( ' RegisterSuccessComponent ngOnInit token : ' + this.user.token);
   }
 }
