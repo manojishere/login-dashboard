@@ -29,6 +29,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterSuccessComponent } from './register/register-success.component';
+import { CsvComponent } from './csv/csv.component';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ import { RegisterSuccessComponent } from './register/register-success.component'
     HomeComponent,
     ProfileComponent,
     AboutComponent,
+    CsvComponent,
   ],
   imports: [
     BrowserModule,
