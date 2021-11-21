@@ -5,5 +5,6 @@ export class Employee{
     lastName:string="";
     age:number | undefined;
     position:string | undefined;
+    email:string | undefined;
     mobile:string | undefined;
 }

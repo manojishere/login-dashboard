@@ -3,6 +3,7 @@ export class CSVRecord {
     public firstName: any;  
     public lastName: any;  
     public age: any;  
-    public position: any;  
+    public position: any; 
+    public email: any; 
     public mobile: any;     
   }

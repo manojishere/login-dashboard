@@ -1,0 +1,89 @@
+<h1>Angular Material Expansion Panel Example - ItSolutionStuff.com</h1>
+  
+<mat-accordion>
+  
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Angular 9
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of Angular 9.</p>
+  </mat-expansion-panel>
+  
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Angular 8
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of Angular 8.</p>
+  </mat-expansion-panel>
+   
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Angular 7
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of Angular 7.</p>
+  </mat-expansion-panel>
+  
+</mat-accordion>
+
+<input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" />    
+
+<table mat-table [dataSource]="records" class="mat-elevation-z8">
+  
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+    
+    <!-- ID Column -->
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    
+    <!-- First Name Column -->
+    <ng-container matColumnDef="FirstName">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- Last Column -->
+    <ng-container matColumnDef="LastName">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+      </ng-container>   
+      
+    <!-- Age -->
+    <ng-container matColumnDef="Age">
+        <th mat-header-cell *matHeaderCellDef> Age </th>
+        <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container> 
+    
+    <!-- Position -->
+    <ng-container matColumnDef="Position">
+        <th mat-header-cell *matHeaderCellDef> Position </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>     
+    
+    <!-- Email Column -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Mobile Column -->
+    <ng-container matColumnDef="Mobile">
+        <th mat-header-cell *matHeaderCellDef> Mobile </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+    </ng-container>    
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "submitData()">Submit Data</button>
+</div>

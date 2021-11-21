@@ -11,6 +11,16 @@ export class CsvComponent implements OnInit {
 
   public records: any[] = [];  
   @ViewChild('csvReader') csvReader: any; 
+
+  data = [
+    {id: 1, name: 'Rajesh', email: 'rajesh@gmail.com'},
+    {id:2, name: 'Paresh', email: 'paresh@gmail.com'},
+    {id:3, name: 'Naresh', email: 'naresh@gmail.com'},
+    {id:4, name: 'Suresh', email: 'suresh@gmail.com'},
+    {id:5, name: 'Karan', email: 'karan@gmail.com'},
+  ];
+  displayedColumns = ['ID', 'FirstName', 'LastName', 'Age', 'Position', 'Email', 'Mobile'];
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -58,7 +68,8 @@ export class CsvComponent implements OnInit {
         csvRecord.lastName = curruntRecord[2].trim();  
         csvRecord.age = curruntRecord[3].trim();  
         csvRecord.position = curruntRecord[4].trim();  
-        csvRecord.mobile = curruntRecord[5].trim();  
+        csvRecord.email = curruntRecord[5].trim();
+        csvRecord.mobile = curruntRecord[6].trim();  
         csvArr.push(csvRecord);  
       }  
     } 

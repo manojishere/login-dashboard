@@ -30,6 +30,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { AboutComponent } from './about/about.component';
 import { RegisterSuccessComponent } from './register/register-success.component';
 import { CsvComponent } from './csv/csv.component';
+import { MatTableModule } from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { CsvComponent } from './csv/csv.component';
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatDividerModule,    
+    MatDividerModule, 
+    MatTableModule,
+    MatExpansionModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
