@@ -19,7 +19,7 @@ export class CsvComponent implements OnInit {
     {id:4, name: 'Suresh', email: 'suresh@gmail.com'},
     {id:5, name: 'Karan', email: 'karan@gmail.com'},
   ];
-  displayedColumns = ['ID', 'FirstName', 'LastName', 'Age', 'Position', 'Email', 'Mobile'];
+  displayedColumns = ['ID', 'FirstName', 'LastName', 'Age', 'Position', 'Email', 'Mobile', 'details', 'update', 'delete'];
   
   constructor() { }
 
@@ -132,6 +132,19 @@ export class CsvComponent implements OnInit {
     allEmployees.forEach((element)=>{
       console.log('name is : ' + element.firstName);
     });
+  } 
+  
+  public redirectToDetails = (id: string) => {
+    console.log('redirectToDetails id : '+ id);
+    
+  }
+  public redirectToUpdate = (id: string) => {
+    console.log('redirectToUpdate id : '+ id);
+    
+  }
+  public redirectToDelete = (id: string) => {
+    console.log('redirectToDelete id : '+ id);
+    
   }  
 
 }
