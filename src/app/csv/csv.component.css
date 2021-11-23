@@ -1,5 +1,8 @@
-div.content {
-    align-items: top;
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 500px;
 }
 
 table.mat-elevation-z8 {  

@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { CSVRecord } from '../model/CSVRecord';
 import { Employee } from '../model/employee';
+import {MatSortHeader} from "@angular/material/sort";
 
 @Component({
   selector: 'app-csv',
@@ -9,8 +12,16 @@ import { Employee } from '../model/employee';
 })
 export class CsvComponent implements OnInit {
 
-  public records: any[] = [];  
+  public records: any[] = []; 
+  public datasource: any; 
   @ViewChild('csvReader') csvReader: any; 
+  @ViewChild(MatSort, { static: true }) sort: MatSort | undefined;
+  /*
+  @ViewChild(MatSort, { static: false })
+  set sort(v: MatSort) {
+   this.datasource.sort = v;
+  }
+  */
 
   data = [
     {id: 1, name: 'Rajesh', email: 'rajesh@gmail.com'},
@@ -19,12 +30,20 @@ export class CsvComponent implements OnInit {
     {id:4, name: 'Suresh', email: 'suresh@gmail.com'},
     {id:5, name: 'Karan', email: 'karan@gmail.com'},
   ];
-  displayedColumns = ['ID', 'FirstName', 'LastName', 'Age', 'Position', 'Email', 'Mobile', 'details', 'update', 'delete'];
+  // displayedColumns = ['ID', 'FirstName', 'LastName', 'Age', 'Position', 'Email', 'Mobile', 'details', 'update', 'delete'];
+  displayedColumns = ['id', 'firstName', 'lastName', 'age', 'position', 'email', 'mobile', 'details', 'update', 'delete'];
   
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  /*
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit');
+    this.datasource.sort = this.sort;
+  } 
+  */ 
 
   uploadListener($event: any): void {  
   
@@ -44,6 +63,7 @@ export class CsvComponent implements OnInit {
         let headersRow = this.getHeaderArray(csvRecordsArray);  
   
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);  
+        this.datasource = new MatTableDataSource( this.records );
       };  
   
       reader.onerror = function () {  
